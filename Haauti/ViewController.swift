@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class ViewController: NSViewController {
+class ViewController: NSSplitViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +18,8 @@ class ViewController: NSViewController {
 
     override var representedObject: Any? {
         didSet {
-        // Update the view, if already loaded.
+        // Update the view, if already loaded
+            print(representedObject)
         }
     }
 

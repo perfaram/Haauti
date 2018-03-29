@@ -13,6 +13,24 @@
 		0B219288206268EC0011314B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B219287206268EC0011314B /* Assets.xcassets */; };
 		0B21928B206268EC0011314B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B219289206268EC0011314B /* Main.storyboard */; };
 		0B219297206268EC0011314B /* HaautiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B219296206268EC0011314B /* HaautiTests.swift */; };
+		0B3B4B80206CB71F00880B71 /* PageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3B4B7F206CB71F00880B71 /* PageController.swift */; };
+		0BB99D0E206CC1B600764907 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB99D0D206CC1B600764907 /* FeedViewController.swift */; };
+		0BB99D31206CEEB600764907 /* JodelAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB99D29206CEEB600764907 /* JodelAccount.swift */; };
+		0BB99D32206CEEB600764907 /* NSColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB99D2A206CEEB600764907 /* NSColor+Extensions.swift */; };
+		0BB99D33206CEEB600764907 /* AJodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB99D2B206CEEB600764907 /* AJodel.swift */; };
+		0BB99D34206CEEB600764907 /* JodelTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB99D2C206CEEB600764907 /* JodelTableCellView.swift */; };
+		0BB99D35206CEEB600764907 /* NSImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB99D2D206CEEB600764907 /* NSImage+Extensions.swift */; };
+		0BB99D36206CEEB600764907 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB99D2E206CEEB600764907 /* AccountManager.swift */; };
+		0BB99D37206CEEB600764907 /* JodelAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB99D2F206CEEB600764907 /* JodelAPI.swift */; };
+		0BB99D38206CEEB600764907 /* LoremSwiftum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB99D30206CEEB600764907 /* LoremSwiftum.swift */; };
+		0BB99D53206CEF9400764907 /* MaterialProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB99D4E206CEF9400764907 /* MaterialProgress.swift */; };
+		0BB99D54206CEF9400764907 /* ProgressUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB99D4F206CEF9400764907 /* ProgressUtils.swift */; };
+		0BB99D55206CEF9400764907 /* Rainbow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB99D50206CEF9400764907 /* Rainbow.swift */; };
+		0BB99D56206CEF9400764907 /* IndeterminateAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB99D51206CEF9400764907 /* IndeterminateAnimation.swift */; };
+		0BB99D57206CEF9400764907 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB99D52206CEF9400764907 /* BaseView.swift */; };
+		0BBA941D206CB589001AE458 /* SourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBA941C206CB589001AE458 /* SourceViewController.swift */; };
+		0BBA941F206CB5C0001AE458 /* SourceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBA941E206CB5C0001AE458 /* SourceView.swift */; };
+		D484C0AC27604F744FBD29AC /* Pods_Haauti.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B78621262659E49926587D7E /* Pods_Haauti.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,7 +41,27 @@
 			remoteGlobalIDString = 0B21927D206268EC0011314B;
 			remoteInfo = Haauti;
 		};
+		0BB99D5C206CEF9B00764907 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0BB99D58206CEF9B00764907 /* PullRefreshableScrollView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0BBA93E5206B8646001AE458;
+			remoteInfo = PullRefreshableScrollView;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0BBA941B206C6063001AE458 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0B21927E206268EC0011314B /* Haauti.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Haauti.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -37,6 +75,28 @@
 		0B219292206268EC0011314B /* HaautiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HaautiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B219296206268EC0011314B /* HaautiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaautiTests.swift; sourceTree = "<group>"; };
 		0B219298206268EC0011314B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0B3B4B7F206CB71F00880B71 /* PageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageController.swift; sourceTree = "<group>"; };
+		0BB99D0D206CC1B600764907 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		0BB99D28206CEE7600764907 /* Haauti-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Haauti-Bridging-Header.h"; path = "Haauti/Haauti-Bridging-Header.h"; sourceTree = "<group>"; };
+		0BB99D29206CEEB600764907 /* JodelAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JodelAccount.swift; sourceTree = "<group>"; };
+		0BB99D2A206CEEB600764907 /* NSColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSColor+Extensions.swift"; sourceTree = "<group>"; };
+		0BB99D2B206CEEB600764907 /* AJodel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AJodel.swift; sourceTree = "<group>"; };
+		0BB99D2C206CEEB600764907 /* JodelTableCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JodelTableCellView.swift; sourceTree = "<group>"; };
+		0BB99D2D206CEEB600764907 /* NSImage+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSImage+Extensions.swift"; sourceTree = "<group>"; };
+		0BB99D2E206CEEB600764907 /* AccountManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
+		0BB99D2F206CEEB600764907 /* JodelAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JodelAPI.swift; sourceTree = "<group>"; };
+		0BB99D30206CEEB600764907 /* LoremSwiftum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoremSwiftum.swift; sourceTree = "<group>"; };
+		0BB99D4E206CEF9400764907 /* MaterialProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialProgress.swift; sourceTree = "<group>"; };
+		0BB99D4F206CEF9400764907 /* ProgressUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressUtils.swift; sourceTree = "<group>"; };
+		0BB99D50206CEF9400764907 /* Rainbow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rainbow.swift; sourceTree = "<group>"; };
+		0BB99D51206CEF9400764907 /* IndeterminateAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndeterminateAnimation.swift; sourceTree = "<group>"; };
+		0BB99D52206CEF9400764907 /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		0BB99D58206CEF9B00764907 /* PullRefreshableScrollView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PullRefreshableScrollView.xcodeproj; path = Libs/PullRefreshableScrollView/PullRefreshableScrollView.xcodeproj; sourceTree = "<group>"; };
+		0BBA941C206CB589001AE458 /* SourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceViewController.swift; sourceTree = "<group>"; };
+		0BBA941E206CB5C0001AE458 /* SourceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceView.swift; sourceTree = "<group>"; };
+		0FDA3BC212E917BEF81CBE35 /* Pods-Haauti.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Haauti.release.xcconfig"; path = "Pods/Target Support Files/Pods-Haauti/Pods-Haauti.release.xcconfig"; sourceTree = "<group>"; };
+		60DA904763C18343CD401D7C /* Pods-Haauti.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Haauti.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Haauti/Pods-Haauti.debug.xcconfig"; sourceTree = "<group>"; };
+		B78621262659E49926587D7E /* Pods_Haauti.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Haauti.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D484C0AC27604F744FBD29AC /* Pods_Haauti.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +123,7 @@
 			children = (
 				0B219280206268EC0011314B /* Haauti */,
 				0B219295206268EC0011314B /* HaautiTests */,
+				0BBA9415206C605D001AE458 /* Frameworks + Pods + Imports + Libs */,
 				0B21927F206268EC0011314B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -78,13 +140,16 @@
 		0B219280206268EC0011314B /* Haauti */ = {
 			isa = PBXGroup;
 			children = (
+				0BB99D2E206CEEB600764907 /* AccountManager.swift */,
 				0B219281206268EC0011314B /* AppDelegate.swift */,
 				0B219283206268EC0011314B /* ViewController.swift */,
-				0B219285206268EC0011314B /* Document.swift */,
-				0B219287206268EC0011314B /* Assets.xcassets */,
+				0BBA941C206CB589001AE458 /* SourceViewController.swift */,
+				0BB99D39206CEECE00764907 /* Model + backend */,
+				0BB99D3A206CEEEB00764907 /* UI + extensions */,
 				0B219289206268EC0011314B /* Main.storyboard */,
-				0B21928C206268EC0011314B /* Info.plist */,
-				0B21928D206268EC0011314B /* Haauti.entitlements */,
+				0BB99D0D206CC1B600764907 /* FeedViewController.swift */,
+				0B3B4B7F206CB71F00880B71 /* PageController.swift */,
+				0BB99D3B206CEF0F00764907 /* Supporting files */,
 			);
 			path = Haauti;
 			sourceTree = "<group>";
@@ -98,6 +163,81 @@
 			path = HaautiTests;
 			sourceTree = "<group>";
 		};
+		0BB99D39206CEECE00764907 /* Model + backend */ = {
+			isa = PBXGroup;
+			children = (
+				0B219285206268EC0011314B /* Document.swift */,
+				0BB99D29206CEEB600764907 /* JodelAccount.swift */,
+				0BB99D2F206CEEB600764907 /* JodelAPI.swift */,
+				0BB99D2B206CEEB600764907 /* AJodel.swift */,
+			);
+			path = "Model + backend";
+			sourceTree = "<group>";
+		};
+		0BB99D3A206CEEEB00764907 /* UI + extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0BBA941E206CB5C0001AE458 /* SourceView.swift */,
+				0BB99D2C206CEEB600764907 /* JodelTableCellView.swift */,
+				0BB99D2A206CEEB600764907 /* NSColor+Extensions.swift */,
+				0BB99D2D206CEEB600764907 /* NSImage+Extensions.swift */,
+			);
+			path = "UI + extensions";
+			sourceTree = "<group>";
+		};
+		0BB99D3B206CEF0F00764907 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				0BB99D30206CEEB600764907 /* LoremSwiftum.swift */,
+				0B21928C206268EC0011314B /* Info.plist */,
+				0B21928D206268EC0011314B /* Haauti.entitlements */,
+				0B219287206268EC0011314B /* Assets.xcassets */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		0BB99D4D206CEF9400764907 /* ProgressKit */ = {
+			isa = PBXGroup;
+			children = (
+				0BB99D4E206CEF9400764907 /* MaterialProgress.swift */,
+				0BB99D4F206CEF9400764907 /* ProgressUtils.swift */,
+				0BB99D50206CEF9400764907 /* Rainbow.swift */,
+				0BB99D51206CEF9400764907 /* IndeterminateAnimation.swift */,
+				0BB99D52206CEF9400764907 /* BaseView.swift */,
+			);
+			name = ProgressKit;
+			path = Libs/ProgressKit;
+			sourceTree = "<group>";
+		};
+		0BB99D59206CEF9B00764907 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0BB99D5D206CEF9B00764907 /* PullRefreshableScrollView.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0BBA9415206C605D001AE458 /* Frameworks + Pods + Imports + Libs */ = {
+			isa = PBXGroup;
+			children = (
+				0BB99D58206CEF9B00764907 /* PullRefreshableScrollView.xcodeproj */,
+				0BB99D4D206CEF9400764907 /* ProgressKit */,
+				E408733529F2F43477DDF15F /* Pods */,
+				0BB99D28206CEE7600764907 /* Haauti-Bridging-Header.h */,
+				B78621262659E49926587D7E /* Pods_Haauti.framework */,
+			);
+			name = "Frameworks + Pods + Imports + Libs";
+			sourceTree = "<group>";
+		};
+		E408733529F2F43477DDF15F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				60DA904763C18343CD401D7C /* Pods-Haauti.debug.xcconfig */,
+				0FDA3BC212E917BEF81CBE35 /* Pods-Haauti.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -105,9 +245,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0B21929B206268EC0011314B /* Build configuration list for PBXNativeTarget "Haauti" */;
 			buildPhases = (
+				0BDDB2455898BD04915A7042 /* [CP] Check Pods Manifest.lock */,
 				0B21927A206268EC0011314B /* Sources */,
 				0B21927B206268EC0011314B /* Frameworks */,
 				0B21927C206268EC0011314B /* Resources */,
+				0BBA941B206C6063001AE458 /* Embed Frameworks */,
+				868CFAE952E55D3B90BA6A55 /* [CP] Embed Pods Frameworks */,
+				FB4716BC3314BE31CE95E766 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -168,6 +312,12 @@
 			mainGroup = 0B219275206268EC0011314B;
 			productRefGroup = 0B21927F206268EC0011314B /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 0BB99D59206CEF9B00764907 /* Products */;
+					ProjectRef = 0BB99D58206CEF9B00764907 /* PullRefreshableScrollView.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				0B21927D206268EC0011314B /* Haauti */,
@@ -175,6 +325,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		0BB99D5D206CEF9B00764907 /* PullRefreshableScrollView.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = PullRefreshableScrollView.framework;
+			remoteRef = 0BB99D5C206CEF9B00764907 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		0B21927C206268EC0011314B /* Resources */ = {
@@ -195,14 +355,91 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0BDDB2455898BD04915A7042 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Haauti-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		868CFAE952E55D3B90BA6A55 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Haauti/Pods-Haauti-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Atributika/Atributika.framework",
+				"${BUILT_PRODUCTS_DIR}/LocalizedTimeAgo/LocalizedTimeAgo.framework",
+				"${BUILT_PRODUCTS_DIR}/Promises/Promise.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Atributika.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LocalizedTimeAgo.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Promise.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Haauti/Pods-Haauti-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB4716BC3314BE31CE95E766 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Haauti/Pods-Haauti-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0B21927A206268EC0011314B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BB99D55206CEF9400764907 /* Rainbow.swift in Sources */,
+				0BB99D31206CEEB600764907 /* JodelAccount.swift in Sources */,
+				0BB99D33206CEEB600764907 /* AJodel.swift in Sources */,
+				0BB99D38206CEEB600764907 /* LoremSwiftum.swift in Sources */,
+				0BB99D34206CEEB600764907 /* JodelTableCellView.swift in Sources */,
+				0BB99D36206CEEB600764907 /* AccountManager.swift in Sources */,
+				0BB99D53206CEF9400764907 /* MaterialProgress.swift in Sources */,
+				0BB99D57206CEF9400764907 /* BaseView.swift in Sources */,
+				0BB99D54206CEF9400764907 /* ProgressUtils.swift in Sources */,
 				0B219284206268EC0011314B /* ViewController.swift in Sources */,
+				0BBA941D206CB589001AE458 /* SourceViewController.swift in Sources */,
+				0B3B4B80206CB71F00880B71 /* PageController.swift in Sources */,
 				0B219282206268EC0011314B /* AppDelegate.swift in Sources */,
+				0BB99D32206CEEB600764907 /* NSColor+Extensions.swift in Sources */,
+				0BBA941F206CB5C0001AE458 /* SourceView.swift in Sources */,
+				0BB99D37206CEEB600764907 /* JodelAPI.swift in Sources */,
 				0B219286206268EC0011314B /* Document.swift in Sources */,
+				0BB99D56206CEF9400764907 /* IndeterminateAnimation.swift in Sources */,
+				0BB99D0E206CC1B600764907 /* FeedViewController.swift in Sources */,
+				0BB99D35206CEEB600764907 /* NSImage+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,7 +581,9 @@
 		};
 		0B21929C206268EC0011314B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 60DA904763C18343CD401D7C /* Pods-Haauti.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Haauti/Haauti.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -354,13 +593,16 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.deicoon.Haauti;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/$(TARGET_NAME)/$(TARGET_NAME)-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
 		0B21929D206268EC0011314B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0FDA3BC212E917BEF81CBE35 /* Pods-Haauti.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Haauti/Haauti.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -370,6 +612,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.deicoon.Haauti;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/$(TARGET_NAME)/$(TARGET_NAME)-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
