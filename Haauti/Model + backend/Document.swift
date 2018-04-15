@@ -7,6 +7,9 @@
 //
 
 import Cocoa
+import CoreLocation
+import Promise
+import SwiftyJSON
 
 class JodelAccount: NSDocument {
 
@@ -31,7 +34,7 @@ class JodelAccount: NSDocument {
         // Insert code here to write your document to data of the specified type. If outError != nil, ensure that you create and set an appropriate error when returning nil.
         // You can also choose to override fileWrapperOfType:error:, writeToURL:ofType:error:, or writeToURL:ofType:forSaveOperation:originalContentsURL:error: instead.
         let plist = self.toCocoaDict()
-        let data = PropertyListSerialization.data(fromPropertyList: plist, format: PropertyListSerialization.PropertyListFormat.binary, options: PropertyListSerialization.WriteOptions())
+        let data = try PropertyListSerialization.data(fromPropertyList: plist, format: PropertyListSerialization.PropertyListFormat.binary, options: PropertyListSerialization.WriteOptions())
         return data
     }
 
@@ -39,20 +42,21 @@ class JodelAccount: NSDocument {
         // Insert code here to read your document from the given data of the specified type. If outError != nil, ensure that you create and set an appropriate error when returning false.
         // You can also choose to override readFromFileWrapper:ofType:error: or readFromURL:ofType:error: instead.
         // If you override either of these, you should also override -isEntireFileLoaded to return false if the contents are lazily loaded.
-        let plist = PropertyListSerialization.propertyList(from: data, options: PropertyListSerialization.ReadOptions.init(rawValue: 0), format: PropertyListSerialization.PropertyListFormat.binary)
+        var format = PropertyListSerialization.PropertyListFormat.binary
+        let plist = try PropertyListSerialization.propertyList(from: data, options: PropertyListSerialization.ReadOptions.init(rawValue: 0), format: &format)
         
-        guard let dict = plist as? Dictionary<String, Any> else { return nil }
+        guard let dict = plist as? Dictionary<String, Any> else { return }
         guard let lat = dict["lat"] as? Double,
             let lng = dict["lng"] as? Double,
             let aCity = dict["city"] as? String,
             let aCountry = dict["country"] as? String,
             let deviceID = dict["device_uid"] as? String,
             let auth_bag = dict["auth_bag"] as? NSDictionary
-            else { return nil }
+            else { return/*throw*/ }
         
         let aLocation = CLLocationCoordinate2D(latitude: lat, longitude: lng)
-        guard let aBag = AuthBag.fromCocoaDict(auth_bag) else { return nil }
-        return JodelAccount(location: location, city: city, country: country, authenticationBag: aBag, deviceID: device_uid, refreshing: false)
+        guard let aBag = AuthBag.fromCocoaDict(auth_bag) else { return }
+        
         self.location = aLocation
         self.city = aCity
         self.country = aCountry
@@ -227,9 +231,9 @@ class JodelAccount: NSDocument {
         
         let urlPromise = Promise<(Data, HTTPURLResponse)>(work: { fulfill, reject in
             URLSession.shared.dataTask(with: rq, completionHandler: { data, response, error in
-                print(error)
-                print(data)
-                print(response)
+                //Swift.print(error)
+                //Swift.print(data)
+                //Swift.print(response)
                 if let error = error {
                     reject(error)
                 } else if let data = data, let response = response {
@@ -501,7 +505,7 @@ class JodelAccount: NSDocument {
         
         return self.jodelRequest(.get, path, params: queryparams, payload: nil, authenticated: true)
             .then({ (json) -> Promise<[AJodel]> in
-                print(json)
+                Swift.print(json)
                 
                 var jodelsInFeed = [AJodel]()
                 
@@ -604,7 +608,7 @@ class JodelAccount: NSDocument {
         
         return self.jodelRequest(.get, path, params: bodyParams, payload: nil, authenticated: true)
             .then({ (json) -> Promise<[AJodel]> in
-                print(json)
+                Swift.print(json)
                 
                 var jodelsInFeed = [AJodel]()
                 
@@ -652,7 +656,7 @@ class JodelAccount: NSDocument {
         let path = "/v3/stickyposts/" + post.postId + "/up"
         return self.jodelRequest(.put, path, params: nil, payload: nil, authenticated: true)
             .then { (json) -> Promise<Bool> in
-                print(json)
+                Swift.print(json)
                 return Promise(value: true)//todo real return val
             }.recover({ (error) -> Promise<Bool> in
                 if let error = error as? SwiftyJSONError {
@@ -687,7 +691,7 @@ class JodelAccount: NSDocument {
                 }
             }
             }.catch { (error) in
-                print(error)
+                Swift.print(error)
         }
         
         /*let rawResponse = PythonList(wrappedPythonAccount.call(method))

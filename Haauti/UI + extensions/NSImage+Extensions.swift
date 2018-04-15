@@ -7,7 +7,6 @@
 //
 
 import Cocoa
-import ASCIImage
 
 extension NSImage {
     func imageWithTint(color: NSColor) -> NSImage {

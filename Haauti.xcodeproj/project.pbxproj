@@ -22,7 +22,6 @@
 		0BB99D35206CEEB600764907 /* NSImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB99D2D206CEEB600764907 /* NSImage+Extensions.swift */; };
 		0BB99D36206CEEB600764907 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB99D2E206CEEB600764907 /* AccountManager.swift */; };
 		0BB99D37206CEEB600764907 /* JodelAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB99D2F206CEEB600764907 /* JodelAPI.swift */; };
-		0BB99D38206CEEB600764907 /* LoremSwiftum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB99D30206CEEB600764907 /* LoremSwiftum.swift */; };
 		0BB99D53206CEF9400764907 /* MaterialProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB99D4E206CEF9400764907 /* MaterialProgress.swift */; };
 		0BB99D54206CEF9400764907 /* ProgressUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB99D4F206CEF9400764907 /* ProgressUtils.swift */; };
 		0BB99D55206CEF9400764907 /* Rainbow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB99D50206CEF9400764907 /* Rainbow.swift */; };
@@ -85,7 +84,6 @@
 		0BB99D2D206CEEB600764907 /* NSImage+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSImage+Extensions.swift"; sourceTree = "<group>"; };
 		0BB99D2E206CEEB600764907 /* AccountManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
 		0BB99D2F206CEEB600764907 /* JodelAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JodelAPI.swift; sourceTree = "<group>"; };
-		0BB99D30206CEEB600764907 /* LoremSwiftum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoremSwiftum.swift; sourceTree = "<group>"; };
 		0BB99D4E206CEF9400764907 /* MaterialProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialProgress.swift; sourceTree = "<group>"; };
 		0BB99D4F206CEF9400764907 /* ProgressUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressUtils.swift; sourceTree = "<group>"; };
 		0BB99D50206CEF9400764907 /* Rainbow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rainbow.swift; sourceTree = "<group>"; };
@@ -188,7 +186,6 @@
 		0BB99D3B206CEF0F00764907 /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
-				0BB99D30206CEEB600764907 /* LoremSwiftum.swift */,
 				0B21928C206268EC0011314B /* Info.plist */,
 				0B21928D206268EC0011314B /* Haauti.entitlements */,
 				0B219287206268EC0011314B /* Assets.xcassets */,
@@ -423,7 +420,6 @@
 				0BB99D55206CEF9400764907 /* Rainbow.swift in Sources */,
 				0BB99D31206CEEB600764907 /* JodelAccount.swift in Sources */,
 				0BB99D33206CEEB600764907 /* AJodel.swift in Sources */,
-				0BB99D38206CEEB600764907 /* LoremSwiftum.swift in Sources */,
 				0BB99D34206CEEB600764907 /* JodelTableCellView.swift in Sources */,
 				0BB99D36206CEEB600764907 /* AccountManager.swift in Sources */,
 				0BB99D53206CEF9400764907 /* MaterialProgress.swift in Sources */,
@@ -589,7 +585,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 8VNN3M6MR6;
-				INFOPLIST_FILE = Haauti/Info.plist;
+				INFOPLIST_FILE = "Haauti/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.deicoon.Haauti;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -608,7 +604,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 8VNN3M6MR6;
-				INFOPLIST_FILE = Haauti/Info.plist;
+				INFOPLIST_FILE = "Haauti/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.deicoon.Haauti;
 				PRODUCT_NAME = "$(TARGET_NAME)";

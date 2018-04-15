@@ -38,16 +38,16 @@ class FeedViewController: NSViewController {
     @IBOutlet weak var tableView: NSTableView!
     @IBOutlet var refreshView: FeedRefreshAccessoryView!
     
-    //var jodelsInFeed = [AJodel]()
-    //var jodelFeedType = JodelFeedType.recent(mine: false, hashtag: nil, channel: nil)
+    var jodelsInFeed = [AJodel]()
+    var jodelFeedType = JodelFeedType.recent(mine: false, hashtag: nil, channel: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.tableView.translatesAutoresizingMaskIntoConstraints = false;
-        //self.tableView.usesAutomaticRowHeights = true
+        self.tableView.translatesAutoresizingMaskIntoConstraints = false;
+        self.tableView.usesAutomaticRowHeights = true
         
-        //self.tableView.intercellSpacing = NSMakeSize(0, 3)
-        //self.tableView.enclosingScrollView?.needsLayout = true
+        self.tableView.intercellSpacing = NSMakeSize(0, 3)
+        self.tableView.enclosingScrollView?.needsLayout = true
         
         //jodelAccount?.updateJodelList(for: jodelFeedType)
         
@@ -68,12 +68,11 @@ extension FeedViewController : PullRefreshableScrollViewDelegate {
     }
 }
 
-/*
 extension FeedViewController : JodelFeedDelegate {
     
     var jodelAccount: JodelAccount? {
         get {
-            return (self.parent as! MainViewController).model
+            return (self.parent as! MainViewController).representedObject as? JodelAccount
         }
     }
     
@@ -87,7 +86,7 @@ extension FeedViewController : JodelFeedDelegate {
     }
 }
 
-
+/*
 extension FeedViewController : NSTableViewDataSource, NSTableViewDelegate {
     func numberOfRows(in tableView: NSTableView) -> Int {
         return jodelsInFeed.count

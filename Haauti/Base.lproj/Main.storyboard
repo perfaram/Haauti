@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
         <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
     </dependencies>
@@ -703,10 +703,10 @@
             </objects>
             <point key="canvasLocation" x="124" y="249"/>
         </scene>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="mxK-Ax-aEy">
             <objects>
-                <splitViewController id="JyV-sD-tL7" customClass="ViewController" customModule="Haauti" customModuleProvider="target" sceneMemberID="viewController">
+                <splitViewController id="JyV-sD-tL7" customClass="MainViewController" customModule="Haauti" customModuleProvider="target" sceneMemberID="viewController">
                     <splitViewItems>
                         <splitViewItem id="Vdv-5U-Yp6"/>
                         <splitViewItem id="h92-M2-Evq"/>
@@ -1158,7 +1158,7 @@
                     </connections>
                 </customView>
             </objects>
-            <point key="canvasLocation" x="589.5" y="1252"/>
+            <point key="canvasLocation" x="676" y="1350"/>
         </scene>
         <!--Account Details-->
         <scene sceneID="zEX-jL-m8l">
