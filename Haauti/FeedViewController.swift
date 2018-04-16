@@ -25,6 +25,10 @@ class FeedRefreshAccessoryView : NSView, AccessoryViewForPullRefreshable {
         indicatorCollection.forEach { $0.animate = false }
     }
     
+    func viewDidReachElasticityPercentage(_ sender: Any?, percentage: Double) {
+        indicatorCollection.forEach { $0.floatValue = Float(percentage / 100) }
+    }
+    
     override func viewDidMoveToWindow() {
         self.isHidden = false
         indicatorCollection.forEach { $0.isHidden = false }
@@ -33,10 +37,12 @@ class FeedRefreshAccessoryView : NSView, AccessoryViewForPullRefreshable {
 }
 
 class FeedViewController: NSViewController {
+    var jodelAccount: JodelAccount?
     //provide empty state for tableview ; pull to refresh
     
     @IBOutlet weak var tableView: NSTableView!
     @IBOutlet var refreshView: FeedRefreshAccessoryView!
+    @IBOutlet var p2rScrollView: PullRefreshableScrollView!
     
     var jodelsInFeed = [AJodel]()
     var jodelFeedType = JodelFeedType.recent(mine: false, hashtag: nil, channel: nil)
@@ -49,15 +55,23 @@ class FeedViewController: NSViewController {
         self.tableView.intercellSpacing = NSMakeSize(0, 3)
         self.tableView.enclosingScrollView?.needsLayout = true
         
-        //jodelAccount?.updateJodelList(for: jodelFeedType)
+        let prv = (self.tableView.superview?.superview as? PullRefreshableScrollView)
+        //prv?.viewDidMoveToWindow()
         
-        //jodelAccount?.register(feedDelegate: self, forFeed: jodelFeedType)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.docHasArrived), name: Notification.Name("DocumentHasArrived"), object: nil)
+    }
+    
+    @objc func docHasArrived(notif: NSNotification) {
+        self.jodelAccount = notif.object as! JodelAccount
+        jodelAccount!.register(feedDelegate: self, forFeed: jodelFeedType)
+        jodelAccount!.updateJodelList(for: jodelFeedType)
     }
 }
 
 extension FeedViewController : PullRefreshableScrollViewDelegate {
     func prScrollView(_ sender: PullRefreshableScrollView, triggeredOnEdge: PullRefreshableScrollView.ViewEdge) -> Bool {
-        //jodelAccount?.updateJodelList(for: jodelFeedType)
+        //check internet => ev ret false
+        jodelAccount?.updateJodelList(for: jodelFeedType)
         return true
     }
     
@@ -69,15 +83,9 @@ extension FeedViewController : PullRefreshableScrollViewDelegate {
 }
 
 extension FeedViewController : JodelFeedDelegate {
-    
-    var jodelAccount: JodelAccount? {
-        get {
-            return (self.parent as! MainViewController).representedObject as? JodelAccount
-        }
-    }
-    
     func feedUpdated(_ jodels: [AJodel]) {
         jodelsInFeed = jodels
+        p2rScrollView.endActions()
         self.tableView.reloadData()
     }
     
@@ -86,7 +94,6 @@ extension FeedViewController : JodelFeedDelegate {
     }
 }
 
-/*
 extension FeedViewController : NSTableViewDataSource, NSTableViewDelegate {
     func numberOfRows(in tableView: NSTableView) -> Int {
         return jodelsInFeed.count
@@ -105,4 +112,4 @@ extension FeedViewController : NSTableViewDataSource, NSTableViewDelegate {
         return JodelTableRowView()
     }
     
-}*/
+}

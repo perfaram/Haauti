@@ -10,6 +10,36 @@ import Cocoa
 import CoreLocation
 import Promise
 import SwiftyJSON
+import MapKit
+
+public enum AwaitError : Error {
+    case Timeout
+    case NilError
+    case NilValue
+}
+func await<T>(_ promise: Promise<T>) throws -> T {
+    while (promise.isPending == true) {
+        sleep(1)
+    }
+    if (promise.isRejected) {
+        throw promise.error ?? AwaitError.NilError
+    } else {
+        guard let val = promise.value else { throw AwaitError.NilValue }
+        return val
+    }
+}/*
+func await<T>(_ closure: @autoclosure () -> Promise<T>) throws -> T {
+    let promise = closure()
+    while (promise.isPending == true) {
+        sleep(1)
+    }
+    if (promise.isRejected) {
+        throw promise.error ?? AwaitError.NilError
+    } else {
+        guard let val = promise.value else { throw AwaitError.NilValue }
+        return val
+    }
+}*/
 
 class JodelAccount: NSDocument {
 
@@ -29,7 +59,75 @@ class JodelAccount: NSDocument {
         self.addWindowController(windowController)
         windowController.contentViewController?.representedObject = self
     }
-
+    
+    public func city(atLocation: CLLocationCoordinate2D) -> Promise<String> {
+        let geoCoder = CLGeocoder()
+        let location = CLLocation(latitude: atLocation.latitude, longitude: atLocation.longitude)
+        
+        let geoPromise = Promise<CLPlacemark>(work: { fulfill, reject in
+            geoCoder.reverseGeocodeLocation(location, completionHandler: { (placemarks, error) -> Void in
+                // Place details
+                var placeMark: CLPlacemark!
+                placeMark = placemarks?[0]
+                fulfill(placeMark)
+            })
+        })
+        
+        return geoPromise.then({ (mark) -> String in
+            if let city = mark.locality {
+                self.city = city
+                return city
+            }
+            // Country
+            /*if let country = placeMark.addressDictionary!["Country"] as? NSString {
+             print(country)
+             }*/
+            throw JodelError.InternalError(.UnGeocodableCity)
+        }).always {
+            self.promisedCity = nil
+            //autosave
+        }
+    }
+    
+    public init(type typeName: String) throws {
+        super.init()
+        
+        let location = CLLocationCoordinate2D(latitude: 46.520612, longitude: 6.566654)
+        let authBag = AuthBag(access_token: "36583936-4a02ef40-8327a846-0308-4606-8399-37e3938406ff",
+                              expiration_date: 1521741383,
+                              refresh_token: "dd615ccf-0cd9-45ef-8645-06a3f2dd64ba",
+                              distinct_id: "5a26fa3ae1cb3e00103bccb2")
+        let uid = "c47230706821eefa529e83582bbb0feff8c62a5e54d33cf7364f27f3263c5255"
+        
+        self.authenticationBag = authBag
+        self.device_uid = uid
+        self.country = "CH"
+        self.city = "Ecublens"
+        self.location = location
+        return
+        
+        let chars : [String] = Array("abcdef0123456789").map { (char) -> String in
+            return String(char)
+        }
+        self.device_uid = Array<Int>(0..<64)
+            .map { (idx: Int) -> String in
+                return chars.randomItem()!
+            }
+            .joined(separator: "")
+        
+        let locManager = CLLocationManager()
+        if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorized,
+            let loc = locManager.location {
+            self.location = loc.coordinate
+        } else {
+            self.location = CLLocationCoordinate2D(latitude: 52.52437, longitude: 13.41053) //Berlin
+        }
+        
+        self.country = "DE"
+        promisedCity = self.city(atLocation: self.location)
+        _ = self.renewAllTokens()
+    }
+    
     override func data(ofType typeName: String) throws -> Data {
         // Insert code here to write your document to data of the specified type. If outError != nil, ensure that you create and set an appropriate error when returning nil.
         // You can also choose to override fileWrapperOfType:error:, writeToURL:ofType:error:, or writeToURL:ofType:forSaveOperation:originalContentsURL:error: instead.
@@ -65,17 +163,22 @@ class JodelAccount: NSDocument {
     }
 
     public var location: CLLocationCoordinate2D!
-    @objc public dynamic var city: String!
+    @objc public dynamic var city: String?
     @objc public dynamic var country: String!
     public var authenticationBag: AuthBag? {
         didSet {
             if (self.bagRequestedPromise == nil) {
-                AccountManager.shared.accounts[device_uid] = self
+                if let url = self.fileURL, let type = self.fileType {
+                    self.save(to: url, ofType: type, for: NSDocument.SaveOperationType.autosaveInPlaceOperation, completionHandler: { (err) in
+                        Swift.print(err)
+                    })
+                }
             }
             //updating the AccountManager with new details would would call the .toCocoaDict method, which, if bagRequestedPromise is != nil, waits upon it. Was the bag var setted in a AuthBag-related promise (and thus didSet called in this context), it would cause the said promise to wait upon itself. bad.
         }
     }
     private var bagRequestedPromise: Promise<AuthBag>? = nil
+    private var promisedCity : Promise<String>? = nil
     public var device_uid: String!
     
     fileprivate var delegates = [JodelFeedType : [JodelFeedDelegate]]()
@@ -231,9 +334,9 @@ class JodelAccount: NSDocument {
         
         let urlPromise = Promise<(Data, HTTPURLResponse)>(work: { fulfill, reject in
             URLSession.shared.dataTask(with: rq, completionHandler: { data, response, error in
-                //Swift.print(error)
-                //Swift.print(data)
-                //Swift.print(response)
+                Swift.print(error)
+                Swift.print(data)
+                Swift.print(response)
                 if let error = error {
                     reject(error)
                 } else if let data = data, let response = response {
@@ -281,17 +384,17 @@ class JodelAccount: NSDocument {
         })
     }
     
-    func renewAllTokens() -> Promise<AuthBag> {
+    private func renewAllTokens(location: CLLocationCoordinate2D, city: String, country: String) -> Promise<AuthBag> {
         let data : [String: CustomStringConvertible] = [
             "client_id": JodelAPISettings.clientId,
             "device_uid": self.device_uid,
             "location": [
-                "city": self.city,
-                "country": self.country,
+                "city": city,
+                "country": country,
                 "loc_accuracy": 10.56,
                 "loc_coordinates": [
-                    "lat": self.location.latitude,
-                    "lng": self.location.longitude,
+                    "lat": location.latitude,
+                    "lng": location.longitude,
                 ],
             ],
             ]
@@ -318,9 +421,24 @@ class JodelAccount: NSDocument {
                 return Promise(value: bag)
             }.always {
                 self.bagRequestedPromise = nil
-                AccountManager.shared.accounts[self.device_uid] = self
         }
         return bagRequestedPromise!
+    }
+    
+    func renewAllTokens() -> Promise<AuthBag> {
+        let cityPromise : Promise<String>
+        if let city = self.city {
+            cityPromise = Promise.init(value: city)
+        } else if let promisedCity = self.promisedCity {
+            cityPromise = promisedCity
+        } else {
+            cityPromise = self.city(atLocation: self.location)
+        }
+        
+        return Promises.all([cityPromise]).then({ values in
+            let city = values[0]
+            return self.renewAllTokens(location: self.location, city: city, country: self.country)
+        })
     }
     
     func refreshAccessToken() -> Promise<AuthBag> {
@@ -363,7 +481,7 @@ class JodelAccount: NSDocument {
                 throw error
             }).always {
                 self.bagRequestedPromise = nil
-                AccountManager.shared.accounts[self.device_uid] = self
+                //autosave
         }
         
         return bagRequestedPromise!
@@ -387,17 +505,24 @@ class JodelAccount: NSDocument {
         }
         guard let aBag = maybeBag else { return NSDictionary() }
         
+        var maybeCity : String? = city
+        
+        if let cityPromise = promisedCity {
+            maybeCity = cityPromise.value
+        }
+        guard let city = maybeCity else { return NSDictionary() }
+        
         let dict = NSMutableDictionary.init()
         dict["lat"] = location.latitude as NSNumber
         dict["lng"] = location.longitude as NSNumber
-        dict["city"] = city as NSString
+        dict["city"] = city  as NSString
         dict["country"] = country as NSString
         dict["device_uid"] = device_uid as NSString
         dict["auth_bag"] = aBag.toCocoaDict()
         return dict
     }
     
-    class func fromCocoaDict(_ dict: NSDictionary?) -> JodelAccount? {
+    /*class func fromCocoaDict(_ dict: NSDictionary?) -> JodelAccount? {
         guard let dict = dict as? Dictionary<String, Any> else { return nil }
         //guard let dict = dict else { return nil }
         guard let lat = dict["lat"] as? Double,
@@ -411,7 +536,7 @@ class JodelAccount: NSDocument {
         let location = CLLocationCoordinate2D(latitude: lat, longitude: lng)
         guard let aBag = AuthBag.fromCocoaDict(auth_bag) else { return nil }
         return JodelAccount(location: location, city: city, country: country, authenticationBag: aBag, deviceID: device_uid, refreshing: false)
-    }
+    }*/
     
     /*func parseFeed(_ type: JodelFeedType, data: JSON) -> [AJodel] {
      guard let array = data.array else { continue }
@@ -779,12 +904,5 @@ class JodelAccount: NSDocument {
      
      jodelsInFeed = jodelsInFeed.sorted(by: { $0.timeStamp.compare($1.timeStamp) == ComparisonResult.orderedDescending })
      }*/
-}
-
-extension AccountManager {
-    func newAccount() -> Promise<JodelAccount> {
-        //self.device_uid = ''.join(random.choice('abcdef0123456789') for _ in range(64))
-        return Promise(error: JodelError.InternalError(.NotImplemented))
-    }
 }
 

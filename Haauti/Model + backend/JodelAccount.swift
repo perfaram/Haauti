@@ -18,6 +18,7 @@ public enum JodelError : Error, CustomStringConvertible {
         case UnexpectedResponseType
         case ParsingError
         case NotImplemented
+        case UnGeocodableCity
     }
     
     public enum APIErrorTypes {

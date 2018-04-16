@@ -23,7 +23,6 @@ class PageController: NSPageController, NSPageControllerDelegate {
         delegate = self
         self.arrangedObjects = myViewArray
         self.transitionStyle = .stackBook
-        print(self.selectedViewController?.className)
         //self.presentViewController(<#T##viewController: NSViewController##NSViewController#>, animator: NSViewControllerPresentationAnimator())
     }
     

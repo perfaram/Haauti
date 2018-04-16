@@ -20,6 +20,11 @@ class MainViewController: NSSplitViewController {
         didSet {
         // Update the view, if already loaded
             print(representedObject)
+            self.view.window?.windowController?.document = representedObject as AnyObject
+            let notif = Notification(name: Notification.Name("DocumentHasArrived"), object: representedObject, userInfo: nil)
+            NotificationCenter.default.post(notif)
+            
+            //NSDocumentController.shared.addObserver(self, forKeyPath: "currentDocument", options: NSKeyValueObservingOptions.new, context: <#T##UnsafeMutableRawPointer?#>)
         }
     }
 

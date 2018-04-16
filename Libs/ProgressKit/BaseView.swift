@@ -33,7 +33,7 @@ open class BaseView : NSView {
         }
     }
 
-    @IBInspectable open var foreground: NSColor = NSColor(red: 66.3 / 256, green: 173.7 / 256, blue: 106.4 / 256, alpha: 1.0) {
+    @IBInspectable open var foreground: NSColor = NSColor(hex: JodelAPISettings.postColors[2]) {
         didSet {
             self.notifyViewRedesigned()
         }

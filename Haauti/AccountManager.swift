@@ -34,7 +34,7 @@ struct AuthBag {
         return AuthBag(access_token: access_token, expiration_date: expiration_date, refresh_token: refresh_token, distinct_id: distinct_id)
     }
 }
-
+/*
 class AccountManager {
     static let shared = AccountManager()
     
@@ -69,4 +69,4 @@ class AccountManager {
             UserDefaults.standard.synchronize()
         }
     }
-}
+}*/

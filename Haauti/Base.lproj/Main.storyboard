@@ -884,7 +884,7 @@
                         <subviews>
                             <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="144" horizontalPageScroll="10" verticalLineScroll="144" verticalPageScroll="10" hasHorizontalScroller="NO" horizontalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="iTw-2i-S4r" customClass="PullRefreshableScrollView" customModule="PullRefreshableScrollView">
                                 <rect key="frame" x="0.0" y="0.0" width="363" height="450"/>
-                                <clipView key="contentView" id="0t8-8L-2tV" customClass="PullRefreshableClipView" customModule="PullRefreshableScrollView">
+                                <clipView key="contentView" id="0t8-8L-2tV">
                                     <rect key="frame" x="0.0" y="0.0" width="363" height="450"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -1070,6 +1070,10 @@
                                                     </prototypeCellViews>
                                                 </tableColumn>
                                             </tableColumns>
+                                            <connections>
+                                                <outlet property="dataSource" destination="eU0-TX-Qo5" id="fcS-Gv-Zps"/>
+                                                <outlet property="delegate" destination="eU0-TX-Qo5" id="K18-Ae-i6u"/>
+                                            </connections>
                                         </tableView>
                                     </subviews>
                                 </clipView>
@@ -1097,6 +1101,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="p2rScrollView" destination="iTw-2i-S4r" id="zmf-fi-4nn"/>
                         <outlet property="refreshView" destination="5KA-CY-hNT" id="k4J-J7-i7T"/>
                         <outlet property="tableView" destination="dzA-yY-czC" id="6PJ-c7-rdp"/>
                     </connections>
