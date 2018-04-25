@@ -175,6 +175,7 @@ extension JodelFeedType: Hashable {
 protocol JodelFeedDelegate {
     func feedUpdated(_: [AJodel])
     func updateFeed()
+    func errorOccurred(_: JodelError)
 }
 
 class AFeed {

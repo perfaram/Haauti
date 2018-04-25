@@ -92,6 +92,10 @@ extension FeedViewController : JodelFeedDelegate {
     func updateFeed() {
         jodelAccount?.updateJodelList(for: jodelFeedType)
     }
+    
+    func errorOccurred(_: JodelError) {
+        //don't reinvent the wheel - swift error presenter ? / framework w/ presenter ?
+    }
 }
 
 extension FeedViewController : NSTableViewDataSource, NSTableViewDelegate {

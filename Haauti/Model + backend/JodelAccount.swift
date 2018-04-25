@@ -29,6 +29,7 @@ public enum JodelError : Error, CustomStringConvertible {
     
     case APIError(APIErrorTypes)
     case InternalError(InternalErrorTypes)
+    case OtherError(Error)
     
     public var description: String {
         return ""

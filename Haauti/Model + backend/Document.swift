@@ -815,8 +815,21 @@ class JodelAccount: NSDocument {
                     dlg.feedUpdated(list)
                 }
             }
-            }.catch { (error) in
-                Swift.print(error)
+        }.catch { (error) in
+            Swift.print(error)
+            let jdlErr : JodelError
+            if let error = error as? JodelError {
+                jdlErr = error
+            }
+            else {
+                jdlErr = JodelError.OtherError(error)
+            }
+            
+            if let delegates = self.delegates[type] {
+                for dlg in delegates {
+                    dlg.errorOccurred(jdlErr)
+                }
+            }
         }
         
         /*let rawResponse = PythonList(wrappedPythonAccount.call(method))
