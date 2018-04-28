@@ -1,20 +1,12 @@
 //
 //  NSColor+Extensions.swift
-//  fronzel
+//  Haauti
 //
 //  Created by Perceval FARAMAZ on 23/02/2018.
 //  Copyright © 2018 deicoon. All rights reserved.
 //
 
 import Cocoa
-
-extension Array {
-    func randomItem() -> Element? {
-        if isEmpty { return nil }
-        let index = Int(arc4random_uniform(UInt32(self.count)))
-        return self[index]
-    }
-}
 
 extension NSColor {
     
@@ -72,33 +64,4 @@ extension NSColor {
         
     }
     
-}
-
-public func Init<Type>(_ value : Type, _ block: (_ object: Type) -> Void) -> Type
-{
-    block(value)
-    return value
-}
-
-extension Formatter {
-    static let iso8601: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.calendar = Calendar(identifier: .iso8601)
-        formatter.locale = Locale(identifier: "en_US_POSIX")
-        formatter.timeZone = TimeZone(abbreviation: "UTC")
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
-        //formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSXXXXX"
-        return formatter
-    }()
-}
-extension Date {
-    var iso8601: String {
-        return Formatter.iso8601.string(from: self)
-    }
-}
-
-extension String {
-    var dateFromISO8601: Date? {
-        return Formatter.iso8601.date(from: self)   // "Mar 22, 2017, 10:22 AM"
-    }
 }

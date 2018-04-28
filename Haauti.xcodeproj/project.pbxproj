@@ -8,19 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		0B219282206268EC0011314B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B219281206268EC0011314B /* AppDelegate.swift */; };
-		0B219284206268EC0011314B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B219283206268EC0011314B /* ViewController.swift */; };
-		0B219286206268EC0011314B /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B219285206268EC0011314B /* Document.swift */; };
+		0B219284206268EC0011314B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B219283206268EC0011314B /* MainViewController.swift */; };
+		0B219286206268EC0011314B /* JodelAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B219285206268EC0011314B /* JodelAccount.swift */; };
 		0B219288206268EC0011314B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B219287206268EC0011314B /* Assets.xcassets */; };
 		0B21928B206268EC0011314B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B219289206268EC0011314B /* Main.storyboard */; };
 		0B219297206268EC0011314B /* HaautiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B219296206268EC0011314B /* HaautiTests.swift */; };
 		0B3B4B80206CB71F00880B71 /* PageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3B4B7F206CB71F00880B71 /* PageController.swift */; };
+		0B8882E4209490450076FF8A /* AssociatedSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8882E3209490450076FF8A /* AssociatedSettings.swift */; };
+		0B8882E62094A78B0076FF8A /* CLLocationCoordinate2D+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8882E52094A78B0076FF8A /* CLLocationCoordinate2D+Extensions.swift */; };
 		0BB99D0E206CC1B600764907 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB99D0D206CC1B600764907 /* FeedViewController.swift */; };
-		0BB99D31206CEEB600764907 /* JodelAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB99D29206CEEB600764907 /* JodelAccount.swift */; };
+		0BB99D31206CEEB600764907 /* JodelError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB99D29206CEEB600764907 /* JodelError.swift */; };
 		0BB99D32206CEEB600764907 /* NSColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB99D2A206CEEB600764907 /* NSColor+Extensions.swift */; };
 		0BB99D33206CEEB600764907 /* AJodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB99D2B206CEEB600764907 /* AJodel.swift */; };
 		0BB99D34206CEEB600764907 /* JodelTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB99D2C206CEEB600764907 /* JodelTableCellView.swift */; };
 		0BB99D35206CEEB600764907 /* NSImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB99D2D206CEEB600764907 /* NSImage+Extensions.swift */; };
-		0BB99D36206CEEB600764907 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB99D2E206CEEB600764907 /* AccountManager.swift */; };
+		0BB99D36206CEEB600764907 /* AuthBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB99D2E206CEEB600764907 /* AuthBag.swift */; };
 		0BB99D37206CEEB600764907 /* JodelAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB99D2F206CEEB600764907 /* JodelAPI.swift */; };
 		0BB99D53206CEF9400764907 /* MaterialProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB99D4E206CEF9400764907 /* MaterialProgress.swift */; };
 		0BB99D54206CEF9400764907 /* ProgressUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB99D4F206CEF9400764907 /* ProgressUtils.swift */; };
@@ -29,6 +31,14 @@
 		0BB99D57206CEF9400764907 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB99D52206CEF9400764907 /* BaseView.swift */; };
 		0BBA941D206CB589001AE458 /* SourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBA941C206CB589001AE458 /* SourceViewController.swift */; };
 		0BBA941F206CB5C0001AE458 /* SourceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBA941E206CB5C0001AE458 /* SourceView.swift */; };
+		0BCC9EAD2092443B007C09F2 /* PullRefreshableScrollView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BB99D5D206CEF9B00764907 /* PullRefreshableScrollView.framework */; };
+		0BCC9EAE2092443B007C09F2 /* PullRefreshableScrollView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0BB99D5D206CEF9B00764907 /* PullRefreshableScrollView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0BCC9EB220924516007C09F2 /* AccountDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCC9EB120924516007C09F2 /* AccountDetailsViewController.swift */; };
+		0BCC9EB420945A35007C09F2 /* ISO8601.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCC9EB320945A35007C09F2 /* ISO8601.swift */; };
+		0BCC9EB620945A52007C09F2 /* Collection&String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCC9EB520945A52007C09F2 /* Collection&String+Extensions.swift */; };
+		0BCC9EBA20945AEB007C09F2 /* NSControl+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCC9EB920945AEB007C09F2 /* NSControl+Extensions.swift */; };
+		0BCC9EBC20945B06007C09F2 /* NSData+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCC9EBB20945B06007C09F2 /* NSData+Extensions.swift */; };
+		0BCC9EBF20945C24007C09F2 /* SwiftConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCC9EBE20945C24007C09F2 /* SwiftConvenience.swift */; };
 		D484C0AC27604F744FBD29AC /* Pods_Haauti.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B78621262659E49926587D7E /* Pods_Haauti.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +57,13 @@
 			remoteGlobalIDString = 0BBA93E5206B8646001AE458;
 			remoteInfo = PullRefreshableScrollView;
 		};
+		0BCC9EAF2092443B007C09F2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0BB99D58206CEF9B00764907 /* PullRefreshableScrollView.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 0BBA93E4206B8646001AE458;
+			remoteInfo = PullRefreshableScrollView;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -56,6 +73,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				0BCC9EAE2092443B007C09F2 /* PullRefreshableScrollView.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -65,8 +83,8 @@
 /* Begin PBXFileReference section */
 		0B21927E206268EC0011314B /* Haauti.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Haauti.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B219281206268EC0011314B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0B219283206268EC0011314B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		0B219285206268EC0011314B /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		0B219283206268EC0011314B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		0B219285206268EC0011314B /* JodelAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JodelAccount.swift; sourceTree = "<group>"; };
 		0B219287206268EC0011314B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0B21928A206268EC0011314B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0B21928C206268EC0011314B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -75,14 +93,16 @@
 		0B219296206268EC0011314B /* HaautiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaautiTests.swift; sourceTree = "<group>"; };
 		0B219298206268EC0011314B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B3B4B7F206CB71F00880B71 /* PageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageController.swift; sourceTree = "<group>"; };
+		0B8882E3209490450076FF8A /* AssociatedSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssociatedSettings.swift; sourceTree = "<group>"; };
+		0B8882E52094A78B0076FF8A /* CLLocationCoordinate2D+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+Extensions.swift"; sourceTree = "<group>"; };
 		0BB99D0D206CC1B600764907 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		0BB99D28206CEE7600764907 /* Haauti-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Haauti-Bridging-Header.h"; path = "Haauti/Haauti-Bridging-Header.h"; sourceTree = "<group>"; };
-		0BB99D29206CEEB600764907 /* JodelAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JodelAccount.swift; sourceTree = "<group>"; };
+		0BB99D29206CEEB600764907 /* JodelError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JodelError.swift; sourceTree = "<group>"; };
 		0BB99D2A206CEEB600764907 /* NSColor+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSColor+Extensions.swift"; sourceTree = "<group>"; };
 		0BB99D2B206CEEB600764907 /* AJodel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AJodel.swift; sourceTree = "<group>"; };
 		0BB99D2C206CEEB600764907 /* JodelTableCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JodelTableCellView.swift; sourceTree = "<group>"; };
 		0BB99D2D206CEEB600764907 /* NSImage+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSImage+Extensions.swift"; sourceTree = "<group>"; };
-		0BB99D2E206CEEB600764907 /* AccountManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
+		0BB99D2E206CEEB600764907 /* AuthBag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthBag.swift; sourceTree = "<group>"; };
 		0BB99D2F206CEEB600764907 /* JodelAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JodelAPI.swift; sourceTree = "<group>"; };
 		0BB99D4E206CEF9400764907 /* MaterialProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialProgress.swift; sourceTree = "<group>"; };
 		0BB99D4F206CEF9400764907 /* ProgressUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressUtils.swift; sourceTree = "<group>"; };
@@ -92,6 +112,12 @@
 		0BB99D58206CEF9B00764907 /* PullRefreshableScrollView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PullRefreshableScrollView.xcodeproj; path = Libs/PullRefreshableScrollView/PullRefreshableScrollView.xcodeproj; sourceTree = "<group>"; };
 		0BBA941C206CB589001AE458 /* SourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceViewController.swift; sourceTree = "<group>"; };
 		0BBA941E206CB5C0001AE458 /* SourceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceView.swift; sourceTree = "<group>"; };
+		0BCC9EB120924516007C09F2 /* AccountDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailsViewController.swift; sourceTree = "<group>"; };
+		0BCC9EB320945A35007C09F2 /* ISO8601.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ISO8601.swift; sourceTree = "<group>"; };
+		0BCC9EB520945A52007C09F2 /* Collection&String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection&String+Extensions.swift"; sourceTree = "<group>"; };
+		0BCC9EB920945AEB007C09F2 /* NSControl+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSControl+Extensions.swift"; sourceTree = "<group>"; };
+		0BCC9EBB20945B06007C09F2 /* NSData+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSData+Extensions.swift"; sourceTree = "<group>"; };
+		0BCC9EBE20945C24007C09F2 /* SwiftConvenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftConvenience.swift; sourceTree = "<group>"; };
 		0FDA3BC212E917BEF81CBE35 /* Pods-Haauti.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Haauti.release.xcconfig"; path = "Pods/Target Support Files/Pods-Haauti/Pods-Haauti.release.xcconfig"; sourceTree = "<group>"; };
 		60DA904763C18343CD401D7C /* Pods-Haauti.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Haauti.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Haauti/Pods-Haauti.debug.xcconfig"; sourceTree = "<group>"; };
 		B78621262659E49926587D7E /* Pods_Haauti.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Haauti.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +129,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D484C0AC27604F744FBD29AC /* Pods_Haauti.framework in Frameworks */,
+				0BCC9EAD2092443B007C09F2 /* PullRefreshableScrollView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,15 +165,10 @@
 		0B219280206268EC0011314B /* Haauti */ = {
 			isa = PBXGroup;
 			children = (
-				0BB99D2E206CEEB600764907 /* AccountManager.swift */,
 				0B219281206268EC0011314B /* AppDelegate.swift */,
-				0B219283206268EC0011314B /* ViewController.swift */,
-				0BBA941C206CB589001AE458 /* SourceViewController.swift */,
 				0BB99D39206CEECE00764907 /* Model + backend */,
 				0BB99D3A206CEEEB00764907 /* UI + extensions */,
 				0B219289206268EC0011314B /* Main.storyboard */,
-				0BB99D0D206CC1B600764907 /* FeedViewController.swift */,
-				0B3B4B7F206CB71F00880B71 /* PageController.swift */,
 				0BB99D3B206CEF0F00764907 /* Supporting files */,
 			);
 			path = Haauti;
@@ -161,13 +183,34 @@
 			path = HaautiTests;
 			sourceTree = "<group>";
 		};
+		0B8882E1209477800076FF8A /* Source view */ = {
+			isa = PBXGroup;
+			children = (
+				0BBA941C206CB589001AE458 /* SourceViewController.swift */,
+				0BBA941E206CB5C0001AE458 /* SourceView.swift */,
+				0B3B4B7F206CB71F00880B71 /* PageController.swift */,
+			);
+			path = "Source view";
+			sourceTree = "<group>";
+		};
+		0B8882E22094779D0076FF8A /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				0BB99D0D206CC1B600764907 /* FeedViewController.swift */,
+				0BB99D2C206CEEB600764907 /* JodelTableCellView.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
 		0BB99D39206CEECE00764907 /* Model + backend */ = {
 			isa = PBXGroup;
 			children = (
-				0B219285206268EC0011314B /* Document.swift */,
-				0BB99D29206CEEB600764907 /* JodelAccount.swift */,
+				0B219285206268EC0011314B /* JodelAccount.swift */,
+				0BB99D29206CEEB600764907 /* JodelError.swift */,
 				0BB99D2F206CEEB600764907 /* JodelAPI.swift */,
 				0BB99D2B206CEEB600764907 /* AJodel.swift */,
+				0BB99D2E206CEEB600764907 /* AuthBag.swift */,
+				0B8882E3209490450076FF8A /* AssociatedSettings.swift */,
 			);
 			path = "Model + backend";
 			sourceTree = "<group>";
@@ -175,10 +218,11 @@
 		0BB99D3A206CEEEB00764907 /* UI + extensions */ = {
 			isa = PBXGroup;
 			children = (
-				0BBA941E206CB5C0001AE458 /* SourceView.swift */,
-				0BB99D2C206CEEB600764907 /* JodelTableCellView.swift */,
-				0BB99D2A206CEEB600764907 /* NSColor+Extensions.swift */,
-				0BB99D2D206CEEB600764907 /* NSImage+Extensions.swift */,
+				0B219283206268EC0011314B /* MainViewController.swift */,
+				0B8882E1209477800076FF8A /* Source view */,
+				0B8882E22094779D0076FF8A /* Feed */,
+				0BCC9EB120924516007C09F2 /* AccountDetailsViewController.swift */,
+				0BCC9EBD20945B43007C09F2 /* Extensions */,
 			);
 			path = "UI + extensions";
 			sourceTree = "<group>";
@@ -226,6 +270,21 @@
 			name = "Frameworks + Pods + Imports + Libs";
 			sourceTree = "<group>";
 		};
+		0BCC9EBD20945B43007C09F2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0BB99D2A206CEEB600764907 /* NSColor+Extensions.swift */,
+				0BCC9EBE20945C24007C09F2 /* SwiftConvenience.swift */,
+				0BCC9EB520945A52007C09F2 /* Collection&String+Extensions.swift */,
+				0BCC9EB320945A35007C09F2 /* ISO8601.swift */,
+				0BB99D2D206CEEB600764907 /* NSImage+Extensions.swift */,
+				0BCC9EBB20945B06007C09F2 /* NSData+Extensions.swift */,
+				0BCC9EB920945AEB007C09F2 /* NSControl+Extensions.swift */,
+				0B8882E52094A78B0076FF8A /* CLLocationCoordinate2D+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		E408733529F2F43477DDF15F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,6 +312,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				0BCC9EB02092443B007C09F2 /* PBXTargetDependency */,
 			);
 			name = Haauti;
 			productName = Haauti;
@@ -418,21 +478,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BB99D55206CEF9400764907 /* Rainbow.swift in Sources */,
-				0BB99D31206CEEB600764907 /* JodelAccount.swift in Sources */,
+				0BB99D31206CEEB600764907 /* JodelError.swift in Sources */,
 				0BB99D33206CEEB600764907 /* AJodel.swift in Sources */,
+				0BCC9EB620945A52007C09F2 /* Collection&String+Extensions.swift in Sources */,
+				0B8882E4209490450076FF8A /* AssociatedSettings.swift in Sources */,
+				0BCC9EB220924516007C09F2 /* AccountDetailsViewController.swift in Sources */,
 				0BB99D34206CEEB600764907 /* JodelTableCellView.swift in Sources */,
-				0BB99D36206CEEB600764907 /* AccountManager.swift in Sources */,
+				0BCC9EBA20945AEB007C09F2 /* NSControl+Extensions.swift in Sources */,
+				0BCC9EB420945A35007C09F2 /* ISO8601.swift in Sources */,
+				0BB99D36206CEEB600764907 /* AuthBag.swift in Sources */,
+				0B8882E62094A78B0076FF8A /* CLLocationCoordinate2D+Extensions.swift in Sources */,
+				0BCC9EBF20945C24007C09F2 /* SwiftConvenience.swift in Sources */,
 				0BB99D53206CEF9400764907 /* MaterialProgress.swift in Sources */,
+				0BCC9EBC20945B06007C09F2 /* NSData+Extensions.swift in Sources */,
 				0BB99D57206CEF9400764907 /* BaseView.swift in Sources */,
 				0BB99D54206CEF9400764907 /* ProgressUtils.swift in Sources */,
-				0B219284206268EC0011314B /* ViewController.swift in Sources */,
+				0B219284206268EC0011314B /* MainViewController.swift in Sources */,
 				0BBA941D206CB589001AE458 /* SourceViewController.swift in Sources */,
 				0B3B4B80206CB71F00880B71 /* PageController.swift in Sources */,
 				0B219282206268EC0011314B /* AppDelegate.swift in Sources */,
 				0BB99D32206CEEB600764907 /* NSColor+Extensions.swift in Sources */,
 				0BBA941F206CB5C0001AE458 /* SourceView.swift in Sources */,
 				0BB99D37206CEEB600764907 /* JodelAPI.swift in Sources */,
-				0B219286206268EC0011314B /* Document.swift in Sources */,
+				0B219286206268EC0011314B /* JodelAccount.swift in Sources */,
 				0BB99D56206CEF9400764907 /* IndeterminateAnimation.swift in Sources */,
 				0BB99D0E206CC1B600764907 /* FeedViewController.swift in Sources */,
 				0BB99D35206CEEB600764907 /* NSImage+Extensions.swift in Sources */,
@@ -454,6 +522,11 @@
 			isa = PBXTargetDependency;
 			target = 0B21927D206268EC0011314B /* Haauti */;
 			targetProxy = 0B219293206268EC0011314B /* PBXContainerItemProxy */;
+		};
+		0BCC9EB02092443B007C09F2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = PullRefreshableScrollView;
+			targetProxy = 0BCC9EAF2092443B007C09F2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
+        <plugIn identifier="com.apple.MapKitIBPlugin" version="14109"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
         <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
     </dependencies>
@@ -1168,25 +1169,68 @@
         <!--Account Details-->
         <scene sceneID="zEX-jL-m8l">
             <objects>
-                <viewController title="Account Details" storyboardIdentifier="details" id="j7v-R4-XtR" sceneMemberID="viewController">
+                <viewController title="Account Details" storyboardIdentifier="details" id="j7v-R4-XtR" customClass="AccountDetailsViewController" customModule="Haauti" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="kYv-kI-cDS">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="415"/>
+                        <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                         <subviews>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XIi-Kb-NAm">
-                                <rect key="frame" x="163" y="132" width="125" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Karma, bitch !" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8K7-wy-8cR">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="b9P-wd-hOn">
+                                <rect key="frame" x="20" y="20" width="206" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="206" id="Mta-9p-nIY"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="OVp-07-QFF">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <mapView mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3ie-l5-Yvi">
+                                <rect key="frame" x="20" y="129" width="410" height="266"/>
+                            </mapView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5rd-Dr-cNf">
+                                <rect key="frame" x="18" y="105" width="331" height="18"/>
+                                <buttonCell key="cell" type="check" title="Display Jodels around you (following your location)" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="0zJ-lD-HCy">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="followUserSwitched:" target="j7v-R4-XtR" id="Vk1-gJ-LEf"/>
+                                </connections>
                             </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UFq-nd-Jsr">
+                                <rect key="frame" x="380" y="21" width="52" height="19"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Karma" id="l1b-Hl-pAn">
+                                    <font key="font" metaFont="systemBold" size="15"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="3ie-l5-Yvi" firstAttribute="top" secondItem="kYv-kI-cDS" secondAttribute="top" constant="20" id="4UL-fi-NZw"/>
+                            <constraint firstAttribute="trailing" secondItem="UFq-nd-Jsr" secondAttribute="trailing" constant="20" id="7GS-p1-Hmh"/>
+                            <constraint firstAttribute="trailing" secondItem="3ie-l5-Yvi" secondAttribute="trailing" constant="20" id="B4Z-vL-pLs"/>
+                            <constraint firstItem="5rd-Dr-cNf" firstAttribute="leading" secondItem="kYv-kI-cDS" secondAttribute="leading" constant="20" id="FIv-Cd-8Qp"/>
+                            <constraint firstItem="3ie-l5-Yvi" firstAttribute="leading" secondItem="kYv-kI-cDS" secondAttribute="leading" constant="20" id="Nk0-vV-09p"/>
+                            <constraint firstAttribute="bottom" secondItem="b9P-wd-hOn" secondAttribute="bottom" constant="20" id="Tkl-nI-egI"/>
+                            <constraint firstAttribute="bottom" secondItem="UFq-nd-Jsr" secondAttribute="bottom" constant="21" id="YGf-Th-vsQ"/>
+                            <constraint firstItem="b9P-wd-hOn" firstAttribute="leading" secondItem="kYv-kI-cDS" secondAttribute="leading" constant="20" id="bRg-3Y-B1t"/>
+                            <constraint firstItem="UFq-nd-Jsr" firstAttribute="top" secondItem="b9P-wd-hOn" secondAttribute="top" constant="2" id="cTH-Vr-7pg"/>
+                            <constraint firstItem="b9P-wd-hOn" firstAttribute="top" secondItem="5rd-Dr-cNf" secondAttribute="bottom" constant="65" id="dXm-2g-mOa"/>
+                            <constraint firstItem="5rd-Dr-cNf" firstAttribute="top" secondItem="3ie-l5-Yvi" secondAttribute="bottom" constant="8" id="kpD-Gg-ldY"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="field" destination="b9P-wd-hOn" id="dne-h2-w7a"/>
+                        <outlet property="followUserCheckbox" destination="5rd-Dr-cNf" id="1ZC-3m-4KA"/>
+                        <outlet property="karmaIndicator" destination="UFq-nd-Jsr" id="Q1x-Rn-52m"/>
+                        <outlet property="mapView" destination="3ie-l5-Yvi" id="5KL-nS-y7H"/>
+                    </connections>
                 </viewController>
                 <customObject id="J9u-1m-A2g" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1204" y="1177"/>
+            <point key="canvasLocation" x="1204" y="1234.5"/>
         </scene>
     </scenes>
     <resources>

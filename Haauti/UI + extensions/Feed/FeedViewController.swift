@@ -1,6 +1,6 @@
 //
 //  FeedViewController.swift
-//  fronzel
+//  Haauti
 //
 //  Created by Perceval FARAMAZ on 23/02/2018.
 //  Copyright © 2018 deicoon. All rights reserved.

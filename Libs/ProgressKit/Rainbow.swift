@@ -20,9 +20,7 @@ open class Rainbow: MaterialProgress {
     override open func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         super.animationDidStop(anim, finished: flag)
         
-        let colors = JodelAPISettings.postColors.map { (hex) -> NSColor in
-            return NSColor(hex: hex)
-        }
+        let colors = JodelAPISettings.colors.all
         
         progressLayer.strokeColor = colors.randomItem()!.cgColor
     }
