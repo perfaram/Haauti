@@ -17,3 +17,10 @@ Likely some encryption key issues. I won't go over on how to fix these, as I don
 
 ## Why "_Haauti_" ?
 It's how a link to [this](https://www.youtube.com/watch?v=vQhqikWnQCU) video is labeled in the (Android, at least) Jodel app : _Jodelhaaaaauuutiiii_. I stripped _Jodel_ and also some of the redundant letters.
+
+## Great resources
+https://github.com/AsamK/JodelJS
+https://github.com/nborrmann/jodel_api
+
+--------
+###### Published in the hope that it will be useful
