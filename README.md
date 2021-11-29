@@ -1,6 +1,6 @@
 # Haauti
 
-Haauti is a W.I.P macOS client for Jodel.
+Haauti was a macOS client for Jodel. It has not been maintained since 2018 and has drifted into incompatibility with the current Jodel API.
 
 ## Build
 
